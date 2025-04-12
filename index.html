@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hovercraft - 悬浮特效博物馆</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Hovercraft</h1>
+        <p class="subtitle">悬浮特效博物馆</p>
+    </header>
+
+    <main class="app-main">
+        <section class="effects-showcase">
+            <div class="effect-container">
+                <!-- 特效展示区域 -->
+                <div class="effect-item" data-effect="scale">
+                    <img src="assets/icons/scale-icon.svg" alt="缩放" class="effect-icon">
+                    <div class="hover-target">缩放特效</div>
+                </div>
+                <div class="effect-item" data-effect="rotate">
+                    <img src="assets/icons/rotate-icon.svg" alt="旋转" class="effect-icon">
+                    <div class="hover-target">旋转特效</div>
+                </div>
+                <div class="effect-item" data-effect="glow">
+                    <img src="assets/icons/glow-icon.svg" alt="发光" class="effect-icon">
+                    <div class="hover-target">发光特效</div>
+                </div>
+                <div class="effect-item" data-effect="blur">
+                    <img src="assets/icons/blur-icon.svg" alt="模糊" class="effect-icon">
+                    <div class="hover-target">模糊特效</div>
+                </div>
+                <div class="effect-item" data-effect="skew">
+                    <img src="assets/icons/skew-icon.svg" alt="倾斜" class="effect-icon">
+                    <div class="hover-target">倾斜特效</div>
+                </div>
+                <div class="effect-item" data-effect="border">
+                    <img src="assets/icons/border-icon.svg" alt="边框" class="effect-icon">
+                    <div class="hover-target">边框特效</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="control-panel">
+            <h2><img src="assets/icons/settings-icon.svg" alt="设置" class="section-icon">控制面板</h2>
+            <div class="controls">
+                <div class="control-group">
+                    <label for="effect-speed">动画速度</label>
+                    <input type="range" id="effect-speed" min="0.1" max="2" step="0.1" value="0.3">
+                </div>
+                <div class="control-group">
+                    <label for="effect-scale">特效幅度</label>
+                    <input type="range" id="effect-scale" min="1" max="2" step="0.1" value="1.2">
+                </div>
+                <div class="control-group">
+                    <label for="effect-type">特效类型</label>
+                    <select id="effect-type">
+                        <option value="scale">缩放</option>
+                        <option value="rotate">旋转</option>
+                        <option value="glow">发光</option>
+                        <option value="blur">模糊</option>
+                        <option value="skew">倾斜</option>
+                        <option value="border">边框</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="effect-timing">动画曲线</label>
+                    <select id="effect-timing">
+                        <option value="ease-in-out">平滑</option>
+                        <option value="ease">渐快</option>
+                        <option value="ease-in">加速</option>
+                        <option value="ease-out">减速</option>
+                        <option value="linear">匀速</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="code-export">
+            <h2><img src="assets/icons/code-icon.svg" alt="代码" class="section-icon">代码导出</h2>
+            <div class="code-container">
+                <pre><code id="export-code">/* 代码将在这里显示 */</code></pre>
+                <button id="copy-code" class="btn">
+                    <img src="assets/icons/copy-icon.svg" alt="复制" class="btn-icon">
+                    复制代码
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>Made with ❤️ by Trae AI</p>
+    </footer>
+
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>
