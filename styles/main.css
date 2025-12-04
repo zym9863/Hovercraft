@@ -445,3 +445,175 @@ code {
     background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
     opacity: 0.5;
 }
+
+/* 历史记录面板样式 */
+.history-panel {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: calc(var(--spacing-unit) * 1.5);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    margin-top: var(--spacing-unit);
+}
+
+.history-panel::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+}
+
+.history-panel h2 {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-unit);
+    text-shadow: 0 0 8px var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-panel h2::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 24px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.history-container {
+    position: relative;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* 滚动条样式 */
+.history-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.history-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.history-container::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.history-container::-webkit-scrollbar-thumb:hover {
+    opacity: 1;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.history-item {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    transition: all 0.3s var(--effect-timing);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.history-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 243, 255, 0.05), rgba(122, 255, 135, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.history-item:hover::before {
+    opacity: 1;
+}
+
+.history-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.3);
+}
+
+.history-item.empty {
+    cursor: default;
+    text-align: center;
+    color: rgba(224, 224, 224, 0.5);
+    border-color: rgba(0, 243, 255, 0.1);
+}
+
+.history-item.empty:hover {
+    transform: none;
+    border-color: rgba(0, 243, 255, 0.1);
+    box-shadow: none;
+}
+
+.history-time {
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+    text-shadow: 0 0 4px rgba(122, 255, 135, 0.5);
+}
+
+.history-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.history-effect {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-shadow: 0 0 4px var(--primary-color);
+    background: rgba(0, 243, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.history-param {
+    color: rgba(224, 224, 224, 0.8);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .history-panel {
+        padding: var(--spacing-unit);
+    }
+
+    .history-container {
+        max-height: 300px;
+    }
+
+    .history-details {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
